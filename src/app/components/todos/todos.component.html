@@ -1,0 +1,35 @@
+<style>
+    .card{
+        width: 18rem;
+    }
+    .card-body{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .done{
+        text-decoration: line-through;
+    }
+    .card-text{
+        cursor: pointer;
+    }
+</style>
+
+<div class="todos">
+
+    <div class="card my-2"
+        *ngFor="let todo of todos; let i = index;">
+        <div class="card-body">
+
+            <h5 class="card-title">{{i}}</h5>
+
+            <p (click)="toggleDone(i)" 
+                class="card-text 
+                {{ (todo.done) ? 'done' : '' }}">
+                {{todo.content}}
+            </p>
+            <button class="btn btn-danger">Remove</button>
+        </div>
+    </div>
+
+</div>
